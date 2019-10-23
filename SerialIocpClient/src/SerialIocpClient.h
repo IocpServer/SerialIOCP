@@ -12,8 +12,8 @@ class SerialIocpClient
 public:
 	SerialIocpClient()
 	{
-		_CommandFuncitonPointer = NULL;
-		_ValueFuncitonPointer = NULL;
+		_CommandFunctionPointer = NULL;
+		_ValueFunctionPointer = NULL;
 	}
 	void Open(long nBaudRate = 115200)
 	{
@@ -35,18 +35,18 @@ public:
 			{
 				if (inputString == "RDY")
 				{
-					if (_CommandFuncitonPointer)
-						_CommandFuncitonPointer(COMMAND_READY);
+					if (_CommandFunctionPointer)
+						_CommandFunctionPointer(COMMAND_READY);
 				}
 				else
 					if (inputString == "QIT")
 					{
-						if (_CommandFuncitonPointer)
-							_CommandFuncitonPointer(COMMAND_QUIT);
+						if (_CommandFunctionPointer)
+							_CommandFunctionPointer(COMMAND_QUIT);
 					}
 					else
 					{
-						if (_ValueFuncitonPointer)
+						if (_ValueFunctionPointer)
 						{
 							int nPos = inputString.indexOf('=');
 							if (nPos>0)
@@ -55,7 +55,7 @@ public:
 								long nId = sId.toDouble();
 								String sVal = inputString.substring(nPos + 1);
 								long nVal = sVal.toDouble();
-								_ValueFuncitonPointer(nId, nVal);
+								_ValueFunctionPointer(nId, nVal);
 							}
 						}
 					}
@@ -89,18 +89,18 @@ public:
 private:
 	typedef void(*voidFuncCom)(int);
 	typedef void(*voidFuncVal)(long, long);
-	voidFuncCom  _CommandFuncitonPointer;
-	voidFuncVal  _ValueFuncitonPointer;
+	voidFuncCom  _CommandFunctionPointer;
+	voidFuncVal  _ValueFunctionPointer;
 	String inputString;
 
 public:
 	void SetOnCommand(voidFuncCom OnCommandFunctionPointer)
 	{
-		_CommandFuncitonPointer = OnCommandFunctionPointer;
+		_CommandFunctionPointer = OnCommandFunctionPointer;
 	}
 	void SetOnValue(voidFuncVal OnValueFunctionPointer)
 	{
-		_ValueFuncitonPointer = OnValueFunctionPointer;
+		_ValueFunctionPointer = OnValueFunctionPointer;
 	}
 };
 
