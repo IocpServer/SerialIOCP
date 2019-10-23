@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map For SerialIocpClient
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+SerialIocpClient	KEYWORD2
+iocp				KEYWORD2
+Open				KEYWORD2
+SetOnCommand		KEYWORD2
+SetOnValue			KEYWORD2
+SetOffset			KEYWORD2
+SendKey				KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+COMMAND_NONE 		LITERAL1
+COMMAND_READY		LITERAL1
+COMMAND_QUIT		LITERAL1

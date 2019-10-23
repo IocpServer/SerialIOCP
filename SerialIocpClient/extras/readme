@@ -1,0 +1,9 @@
+This is the SerialIocpClient library for the Arduino.
+
+After installation you should have files such as:
+arduinoxxx/libraries/SerialIocpClient/SerialIocpClient.h
+where arduinoxxx is your Arduino installation directory
+
+For details on the library see the Help http://www.aiku.systems/iocp/arduino/serial/help/
+
+Copyright 2019 Aiku Systems
